@@ -1,5 +1,5 @@
 import styles from './HeroStyles.module.css';
-import heroImg from '../../assets/Design uten navn.png';
+import img from '../../assets/img.png';
 import sun from '../../assets/sun.svg';
 import moon from '../../assets/moon.svg';
 import twitterLight from '../../assets/twitter-light.svg';
@@ -8,7 +8,7 @@ import githubLight from '../../assets/github-light.svg';
 import githubDark from '../../assets/github-dark.svg';
 import linkedinLight from '../../assets/linkedin-light.svg';
 import linkedinDark from '../../assets/linkedin-dark.svg';
-import CV from '../../assets/cv.pdf';
+import resume from '../../assets/resume.pdf';
 import { useTheme } from '../../common/ThemeContext';
 
 function Hero() {
@@ -23,7 +23,7 @@ function Hero() {
     <section id="hero" className={styles.container}>
       <div className={styles.colorModeContainer}>
         <img
-          src={heroImg}
+          src={img}
           className={styles.hero}
           alt="Profile picture of Harsh Ranjan Jha"
         />
@@ -40,7 +40,7 @@ function Hero() {
           <br />
           Ranjan Jha
         </h1>
-        <h2>Frontend Developer</h2>
+        <h2>Software Developer</h2>
         <span>
           <a href="https://twitter.com/thattallboy987" target="_blank">
             <img src={twitterIcon} alt="Twitter icon" />
@@ -48,15 +48,14 @@ function Hero() {
           <a href="https://github.com/harshjha987" target="_blank">
             <img src={githubIcon} alt="Github icon" />
           </a>
-          <a href="https://linkedin.com/hrjha987" target="_blank">
+          <a href="https://www.linkedin.com/in/hrjha987/" target="_blank">
             <img src={linkedinIcon} alt="Linkedin icon" />
           </a>
         </span>
         <p className={styles.description}>
-          With a passion for developing modern React web apps for commercial
-          businesses.
+        Aspiring Software Developer with expertise in web development. Proficient at problem-solving and creating efficient, scalable web solutions. Proven ability to tackle complex challenges and deliver high-quality results.
         </p>
-        <a href={CV} download>
+        <a href={resume} download>
           <button className="hover">Resume</button>
         </a>
       </div>

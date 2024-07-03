@@ -1,5 +1,5 @@
 import styles from './ProjectsStyles.module.css';
-import viberr from '../../assets/viberr.png';
+import logo from '../../assets/logo.png';
 import freshBurger from '../../assets/fresh-burger.png';
 import hipsster from '../../assets/hipsster.png';
 import fitLift from '../../assets/fitlift.png';
@@ -11,10 +11,10 @@ function Projects() {
       <h1 className="sectionTitle">Projects</h1>
       <div className={styles.projectsContainer}>
         <ProjectCard
-          src={viberr}
-          link="https://github.com/harshjha987/homehub"
-          h3="Viberr"
-          p="Streaming App"
+          src={logo}
+          link="https://homehub-jwy1.onrender.com/"
+          h3="HomeHub.com"
+          p="A real estate platform to connect buyers, sellers, renters, and landlords in a seamless online marketplace"
         />
         {/* <ProjectCard
           src={freshBurger}
