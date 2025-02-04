@@ -42,7 +42,7 @@ app.post("/send", async (req,res) => {
     
 })
 app.get("/",(req,res)=>{
-    res.send("Hello wolrd");
+    res.send("Hello world");
 })
 
 app.listen(port,()=> {
