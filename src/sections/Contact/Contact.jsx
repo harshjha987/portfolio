@@ -1,5 +1,6 @@
 import styles from './ContactStyles.module.css';
 import { useState } from 'react';
+const apiUrl = import.meta.env.VITE_BASE_URL;
 
 function Contact() {
   const [formData,setFormData] = useState({
@@ -17,7 +18,7 @@ const handleSubmit = async (e)=>{
   setStatus("Sending...");
 
   try {
-    const response = await fetch("https://portfolio-582p.vercel.app/send",{
+    const response = await fetch(`${apiUrl}/send`,{
       method : "POST",
       headers : {"Content-Type" : "application/json"},
       body: JSON.stringify(formData),

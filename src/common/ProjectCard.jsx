@@ -6,6 +6,7 @@ function ProjectCard({ src, link, h3, p }) {
       <img className="hover" src={src} alt={`${h3} logo`} />
       <h3>{h3}</h3>
       <p>{p}</p>
+      
     </a>
   );
 }
