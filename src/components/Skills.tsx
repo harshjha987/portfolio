@@ -5,9 +5,9 @@ import { InfiniteMovingCards } from "../components/ui/infinite-moving-cards"
 
 export function Skills() {
   return (
-    <div className="h-[25rem] rounded-md flex flex-col antialiased bg-white
+    <div className="h-[25rem] rounded-md flex flex-col antialiased bg-white border-t-2 
     dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden gap-6" >
-      <h2 className="text-5xl font-semibold mb-10 text-center text-zinc-300/90 font-mono">Skills and Tools</h2>
+      <h2 className="md:text-5xl text-3xl font-semibold mb-10 text-center text-zinc-100/90 font-mono">Skills and Tools</h2>
     
     <div >
      

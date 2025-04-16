@@ -4,7 +4,7 @@ import { Spotlight } from "../components/ui/Spotlight";
 
 export function Hero() {
   return (
-    <div className="relative flex h-[32rem] w-full overflow-hidden rounded-md bg-black/[0.96] antialiased md:items-center md:justify-center">
+    <div className="relative flex h-[25rem] md:h-[32rem] w-full overflow-hidden rounded-md bg-black/[0.96] antialiased md:items-center md:justify-center">
       <div
         className={cn(
           "pointer-events-none absolute inset-0 [background-size:40px_40px] select-none",
@@ -16,13 +16,13 @@ export function Hero() {
         className="-top-40 left-0 md:-top-20 md:left-60"
         fill="blue"
       />
-      <div className="relative z-10 mx-auto w-full max-w-7xl pl-15 pt-20 md:pt-10">
+      <div className="relative z-10 mx-auto w-full max-w-7xl pl-10 md:pl-15 pt-30 md:pt-10 ">
         <h1 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text  font-mono
         tracking-wide text-4xl text-purple-400 font-medium  md:text-5xl opacity: 1  gap-2 leading-none mb-1  transform: none">
-          <span className="mr-2 font-mono">HI!</span> <span className="mr-2 font-mono">  I'M</span><span className="font-mono"> HARSH</span>
+          <span className="md:mr-2 font-mono">HI!</span> <span className="md:mr-2 font-mono">  I'M</span><span className="font-mono"> HARSH</span>
         </h1>
-        <h3 className="text-3xl font-semibold text-zinc-300/90 ">Software Engineer.</h3>
-        <p className=" mt-4 max-w-lg font-normal font-sans tracking-wide   text-base 
+        <h3 className="md:text-2xl text-xl font-medium text-zinc-300/90 font-serif">Software Engineer.</h3>
+        <p className=" mt-4 max-w-lg font-normal font-mono tracking-tight  text-base 
         md:text-lg/7 leading-7  text-zinc-300/70">
         I’m Harsh — a final-year Computer Science student passionate about full-stack development and Gen-AI.
          I love building meaningful tech, contributing to open-source, and bringing ideas to life through code.

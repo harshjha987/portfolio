@@ -3,6 +3,7 @@
 
 import ContactUs from "@/components/ContactUs";
 import { Hero } from "@/components/hero";
+import Projects from "@/components/Project";
 import { Skills } from "@/components/Skills";
 
 
@@ -16,6 +17,9 @@ export default function Home() {
     <section >
     
       <Skills />
+    </section>
+    <section>
+      <Projects />
     </section>
     <section>
       <ContactUs />
