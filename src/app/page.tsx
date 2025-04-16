@@ -1,7 +1,9 @@
 "use client"
 
-import { GridBackground } from "@/components/grid-background";
+
+import ContactUs from "@/components/ContactUs";
 import { Hero } from "@/components/hero";
+import { Skills } from "@/components/Skills";
 
 
 export default function Home() {
@@ -11,8 +13,12 @@ export default function Home() {
     
     <Hero />
     </section>
+    <section >
+    
+      <Skills />
+    </section>
     <section>
-      <GridBackground />
+      <ContactUs />
     </section>
     
     </div>

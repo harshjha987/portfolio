@@ -24,7 +24,7 @@ export function Hero() {
         <h3 className="text-3xl font-semibold text-zinc-300/90 ">Software Engineer.</h3>
         <p className=" mt-4 max-w-lg font-normal font-sans tracking-wide   text-base 
         md:text-lg/7 leading-7  text-zinc-300/70">
-        I’m Harsh — a final-year Computer Science student passionate about full-stack development.
+        I’m Harsh — a final-year Computer Science student passionate about full-stack development and Gen-AI.
          I love building meaningful tech, contributing to open-source, and bringing ideas to life through code.
         </p>
       </div>

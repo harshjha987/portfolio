@@ -26,10 +26,10 @@ function Navbar({ className }: { className?: string }) {
       
       </Link>
       
-      <div className="hidden md:flex items-center space-x-10 font-mono text-[15px] font-medium">
+      <div className="hidden md:flex items-center space-x-10 font-mono text-[15px] font-medium ">
         <div className="flex gap-1 items-center">
       
-        <MenuItem setActive={setActive} active={active} item="Home">
+        <MenuItem setActive={setActive} active={active} item="Home" >
           
         </MenuItem>
         </div>
@@ -45,11 +45,13 @@ function Navbar({ className }: { className?: string }) {
           
         </MenuItem>
         </div>
+        
         <div className="flex gap-1 items-center">
-          
+        <Link href= "/blogs">
         <MenuItem setActive={setActive} active={active} item="Blogs">
           
         </MenuItem>
+        </Link>
         </div>
         </div>
         <div className="hidden md:flex items-center  space-x-4">
