@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import Image from "next/image";
+
 
 const transition = {
   type: "spring",
@@ -81,7 +81,7 @@ export const ProductItem = ({
   title,
   description,
   href,
-  src,
+  
 }: {
   title: string;
   description: string;

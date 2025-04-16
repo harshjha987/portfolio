@@ -44,6 +44,7 @@ function ContactUs() {
             
         } catch (error) {
             setStatus('error')
+            console.log(error)
         }
 
     }
