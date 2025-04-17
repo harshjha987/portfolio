@@ -11,49 +11,44 @@ type ProjectCardProps = {
 
 }
 
-export function ProjectCard({title,description,img,link,tech=[],avatar}:ProjectCardProps) {
-
+export function ProjectCard({ title, description, img, link, tech = [] }: ProjectCardProps) {
   return (
-    <div className="max-w-xs w-full group/card">
-      <div
-        className={cn(
-          " cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl  max-w-sm mx-auto  flex flex-col justify-between p-4",
-          "bg-[url(https://images.unsplash.com/photo-1544077960-604201fe74bc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1651&q=80)] bg-cover"
-        )}
-      >
-        <div className="absolute w-full h-full top-0 left-0
-        transition duration-300 group-hover/card:bg-black opacity-60">
-            <div className="relative  justify-between flex flex-row items-center space-x-4 z-10">
-                <div className="flex flex-row itms-center space-x-2">
-               
-                <div className="flex flex-col ">
-                    <p className="font-normal text-base text-gray-50">{title}</p>
+    <div className="max-w-xs w-full rounded-md shadow-xl overflow-hidden bg-white dark:bg-gray-900 text-black dark:text-white">
+      {/* Top Image */}
+      <div className="h-48 w-full">
+        <img
+          src={img}
+          alt={title}
+          className="h-full w-full object-cover"
+        />
+      </div>
 
-                </div>
-                </div>
+      {/* Content Below */}
+      <div className="p-4 space-y-3">
+        <h2 className="text-lg font-semibold">{title}</h2>
+        <p className="text-sm opacity-80">{description}</p>
 
-
-            </div>
-            <div className="z-10">
-            <h1 className="font-bold text-xl md:text-2xl text-gray-50">
-              {title}
-            </h1>
-            <p className="font-normal text-sm text-gray-50 my-4">
-              {description}
-            </p>
-            <div className="flex flex-wrap gap-2 mt-2">
-                {Array.isArray(tech) &&
-                  tech.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="text-xs bg-white text-black px-2 py-1 rounded-md"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-              </div>
-          </div>
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-2">
+          {tech.map((tag, index) => (
+            <span
+              key={index}
+              className="bg-gray-200 dark:bg-gray-700 text-xs text-black dark:text-white px-2 py-1 rounded-md"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
+
+        {/* Link */}
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-blue-600 dark:text-blue-400 text-sm font-medium mt-2 underline"
+        >
+          Visit Project ↗
+        </a>
       </div>
     </div>
   );

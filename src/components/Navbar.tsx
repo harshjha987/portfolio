@@ -41,7 +41,7 @@ function Navbar({ className }: { className?: string }) {
       <Menu setActive={setActive}>
       <Link href= '/'>
       <div className="flex items-center ">
-        <img src= "/s (1).png" className="md:h-10 md:w-26 h-8 w-20 bg-black"/>
+        <img src= "/s (1).png" className="md:h-10 md:w-26 h-8 w-22 "/>
       </div>
       
       
@@ -90,7 +90,7 @@ function Navbar({ className }: { className?: string }) {
           <div className="md:hidden flex gap-4 px-2 ">
           <button onClick={() => setOpen(true)}>
         <kbd className="pointer-events-none inline-flex h-10 select-none items-center gap-1 rounded  px-1.5 font-mono text-[10px] font-medium text-white opacity-100">
-          <span className="text-sm mb-2.5">⌘</span>
+          <span className="text-base mb-2.5">⌘</span>
         </kbd>
         </button>
       
