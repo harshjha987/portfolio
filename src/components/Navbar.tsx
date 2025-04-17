@@ -146,17 +146,21 @@ function Navbar({ className }: { className?: string }) {
         </div>
         <div className="flex gap-1 items-center">
         <button onClick={() => setSheetOpen(false)}>
+          <Link href = "#hero">
          
         <MenuItem setActive={setActive} active={active} item="About">
           
         </MenuItem>
+        </Link>
         </button>
         </div>
         <div className="flex gap-1 items-center">
         <button onClick={() => setSheetOpen(false)}>
+        <Link href = "#projects">
         <MenuItem setActive={setActive} active={active} item="Projects">
           
         </MenuItem>
+        </Link>
         </button>
         </div>
         
