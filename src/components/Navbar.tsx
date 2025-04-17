@@ -4,7 +4,7 @@ import {  Menu, MenuItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
 // import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 // import { Button } from "./ui/button";
-import {  Github, Linkedin, Moon, Sun, Twitter } from "lucide-react";
+import {  Github, Linkedin, MenuIcon,  Twitter } from "lucide-react";
 // import { useTheme } from "next-themes"
 import Link from "next/link";
 import {
@@ -17,12 +17,22 @@ import {
   CommandSeparator,
  
 } from "@/components/ui/command"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
+
 
 
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   const [open ,setOpen] = React.useState(false)
+  const [sheetOpen, setSheetOpen] = React.useState(false);
   // const { setTheme } = useTheme()
   return (
     <div
@@ -39,10 +49,11 @@ function Navbar({ className }: { className?: string }) {
       
       <div className="hidden md:flex items-center space-x-10 font-mono text-[15px] font-medium ">
         <div className="flex gap-1 items-center">
-      
+        <Link href= '/'>
         <MenuItem setActive={setActive} active={active} item="Home" >
           
         </MenuItem>
+        </Link>
         </div>
         <div className="flex gap-1 items-center">
          
@@ -76,7 +87,7 @@ function Navbar({ className }: { className?: string }) {
            <Linkedin />
           </a>
           </div>
-          <div className="md:hidden flex ">
+          <div className="md:hidden flex gap-4 px-2 ">
           <button onClick={() => setOpen(true)}>
         <kbd className="pointer-events-none inline-flex h-10 select-none items-center gap-1 rounded  px-1.5 font-mono text-[10px] font-medium text-white opacity-100">
           <span className="text-sm mb-2.5">⌘</span>
@@ -106,7 +117,58 @@ function Navbar({ className }: { className?: string }) {
           
         </CommandList>
       </CommandDialog>
-      </div>
+      
+       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+  <SheetTrigger asChild>
+    
+    <MenuIcon className="h-5 w-5 mt-[5px]" />
+    
+    
+  </SheetTrigger>
+  
+  <SheetContent>
+  
+    
+      <div className="space-y-4 pl-6 font-mono">
+      <div className="flex gap-1 items-center mt-6">
+      <Link href= '/' onClick={() => setSheetOpen(false)}>
+        <MenuItem setActive={setActive} active={active} item="Home" >
+          
+        </MenuItem>
+        </Link>
+        </div>
+        <div className="flex gap-1 items-center">
+        <button onClick={() => setSheetOpen(false)}>
+         
+        <MenuItem setActive={setActive} active={active} item="About">
+          
+        </MenuItem>
+        </button>
+        </div>
+        <div className="flex gap-1 items-center">
+        <button onClick={() => setSheetOpen(false)}>
+        <MenuItem setActive={setActive} active={active} item="Projects">
+          
+        </MenuItem>
+        </button>
+        </div>
+        
+        <div className="flex gap-1 items-center">
+        <Link href= "/blogs" onClick={() => setSheetOpen(false)}>
+        <MenuItem setActive={setActive} active={active} item="Blogs">
+          
+        </MenuItem>
+        </Link>
+        </div>
+        
+      
+      
+    </div>
+    
+  </SheetContent>
+  </Sheet>
+
+</div>
         
         {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
