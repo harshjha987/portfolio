@@ -56,16 +56,19 @@ function Navbar({ className }: { className?: string }) {
         </Link>
         </div>
         <div className="flex gap-1 items-center">
+          <Link href = "#hero">
          
         <MenuItem setActive={setActive} active={active} item="About">
           
         </MenuItem>
+        </Link>
         </div>
         <div className="flex gap-1 items-center">
-          
+          <Link href = "#projects">
         <MenuItem setActive={setActive} active={active} item="Projects">
           
         </MenuItem>
+        </Link>
         </div>
         
         <div className="flex gap-1 items-center">
