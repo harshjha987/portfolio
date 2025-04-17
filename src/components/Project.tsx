@@ -5,7 +5,7 @@ const projects = [
     title: "Shortrix",
     description: "A full-stack URL shortener with user auth and analytics.",
     img: "/shortrix.jpg",
-    link: "https://shortrix.vercel.app",
+    link: "https://shortrix.vercel.app/",
     
     
     tech: ["Nexjs", "Node.js", "MongoDB","Aceternity Ui"],
@@ -14,7 +14,7 @@ const projects = [
     title: "Mira Ai",
     description: "Personalised chatbot for career counseling(Currently under Construction)",
     img: "/mira.jpg",
-    link: "https://gemini-chat.vercel.app",
+    link: "https://simplebot-delta.vercel.app/",
     tech: ["React", "Gemini API"],
   },
   {
@@ -29,7 +29,7 @@ const projects = [
     description: 'Multi-page dashboard that integrates real-time weather data, cryptocurrency information, and news updates.',
     img: '/crypto.jpg',
     tech: ['Nexjs', 'Nodejs', 'MongoDB', 'Aceternity Ui'],
-    link: 'https://homehub.vercel.app',
+    link: 'https://cryptoweathernexus-two.vercel.app/',
   },
 ];
 
