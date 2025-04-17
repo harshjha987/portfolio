@@ -16,8 +16,8 @@ export function Hero() {
         className="-top-40 left-0 md:-top-20 md:left-60"
         fill="blue"
       />
-      <div className="relative z-10 mx-auto w-full max-w-7xl pl-10 md:pl-15 pt-30 md:pt-10 ">
-        <h1 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text  font-mono
+      <div className="relative z-10 mx-auto w-full max-w-7xl pl-6 md:pl-15 pt-25 md:pt-10 ">
+        <h1 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text   font-sans
         tracking-wide text-4xl text-purple-400 font-medium  md:text-5xl opacity: 1  gap-2 leading-none mb-1  transform: none">
           <span className="md:mr-2 font-mono">HI!</span> <span className="md:mr-2 font-mono">  I'M</span><span className="font-mono"> HARSH</span>
         </h1>

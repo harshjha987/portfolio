@@ -28,8 +28,8 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="py-20 px-6 bg-black text-white">
-      <h2 className="text-4xl font-bold mb-10 text-center">🚀 Projects</h2>
+    <section className="py-20 px-6 bg-black text-white border-b-2 ">
+      <h2 className="text-4xl font-bold mb-10 text-center"> Projects</h2>
       <div className="grid md:grid-cols-2  gap-10 place-items-center">
         {projects.map((proj, index) => (
           <ProjectCard key={index} {...proj} />

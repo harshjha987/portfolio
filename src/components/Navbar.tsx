@@ -2,25 +2,36 @@
 import React, { useState } from "react";
 import {  Menu, MenuItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
+// import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+// import { Button } from "./ui/button";
 import {  Github, Linkedin, Moon, Sun, Twitter } from "lucide-react";
-import { useTheme } from "next-themes"
+// import { useTheme } from "next-themes"
 import Link from "next/link";
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+ 
+} from "@/components/ui/command"
 
 
 
 function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
-  const { setTheme } = useTheme()
+  const [open ,setOpen] = React.useState(false)
+  // const { setTheme } = useTheme()
   return (
     <div
-      className={cn("fixed top-5 inset-x-0 max-w-6xl mx-auto z-50 justify-between ", className)}
+      className={cn("fixed top-5 inset-x-0 max-w-6xl mx-auto z-50 justify-between  ", className)}
     >
       <Menu setActive={setActive}>
       <Link href= '/'>
-      <div className="flex items-center ml-5">
-        <p className="py-1">Harsh</p>
+      <div className="flex items-center ">
+        <img src= "/s (1).png" className="md:h-10 md:w-26 h-8 w-20 bg-black"/>
       </div>
       
       
@@ -64,9 +75,40 @@ function Navbar({ className }: { className?: string }) {
           <a href="https://www.linkedin.com/in/hrjha987/" target="_blank" rel="noopener noreferrer">
            <Linkedin />
           </a>
-
+          </div>
+          <div className="md:hidden flex ">
+          <button onClick={() => setOpen(true)}>
+        <kbd className="pointer-events-none inline-flex h-10 select-none items-center gap-1 rounded  px-1.5 font-mono text-[10px] font-medium text-white opacity-100">
+          <span className="text-sm mb-2.5">⌘</span>
+        </kbd>
+        </button>
+      
+      
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandInput placeholder="Type a command or search..." />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup heading="Social">
+            <CommandItem onSelect={() => window.open("https://github.com/harshjha987", "_blank")}>
+              <Github />
+              <span>Github</span>
+            </CommandItem>
+            <CommandItem onSelect={() => window.open("https://www.linkedin.com/in/hrjha987/", "_blank")}>
+              <Linkedin />
+              <span>Linked In</span>
+            </CommandItem>
+            <CommandItem onSelect={() => window.open("https://x.com/thattallboy987", "_blank")}>
+              <Twitter />
+              <span>Twitter</span>
+            </CommandItem>
+          </CommandGroup>
+          <CommandSeparator />
+          
+        </CommandList>
+      </CommandDialog>
+      </div>
         
-        <DropdownMenu>
+        {/* <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" size="icon">
               <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
@@ -88,8 +130,8 @@ function Navbar({ className }: { className?: string }) {
         </DropdownMenu>
         
         
-      
-        </div>
+       */}
+        
       </Menu>
     </div>
   );
