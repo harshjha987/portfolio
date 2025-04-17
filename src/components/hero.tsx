@@ -1,6 +1,7 @@
 import React from "react";
 import { cn } from "@/lib/utils";
 import { Spotlight } from "../components/ui/Spotlight";
+import { Button } from "./ui/moving-border";
 
 export function Hero() {
   return (
@@ -23,10 +24,17 @@ export function Hero() {
         </h1>
         <h3 className="md:text-2xl text-xl font-medium text-zinc-300/90 font-serif">Software Engineer.</h3>
         <p className=" mt-4 max-w-lg font-normal font-mono tracking-tight  text-base 
-        md:text-lg/7 leading-7  text-zinc-300/70">
+        md:text-lg/7 leading-7  text-zinc-300/70 mb-2">
         I’m Harsh — a final-year Computer Science student passionate about full-stack development and Gen-AI.
          I love building meaningful tech, contributing to open-source, and bringing ideas to life through code.
         </p>
+        <a href="/HarshRanjanJha_CV.pdf" target="_blank" rel="noopener noreferrer">
+        <Button borderRadius="1.75rem"
+        className="bg-white dark:bg-slate-900 text-base font-sans text-black dark:text-white border-neutral-200 dark:border-slate-800 "
+         >
+          Check my Resume
+        </Button>
+        </a>
       </div>
     </div>
   );
