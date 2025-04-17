@@ -4,7 +4,7 @@ import {  Menu, MenuItem } from "./ui/navbar-menu";
 import { cn } from "@/lib/utils";
 // import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
 // import { Button } from "./ui/button";
-import {  Github, Linkedin, MenuIcon,  Twitter } from "lucide-react";
+import {  Github, Instagram, Linkedin, MenuIcon,  Twitter } from "lucide-react";
 // import { useTheme } from "next-themes"
 import Link from "next/link";
 import {
@@ -98,7 +98,7 @@ function Navbar({ className }: { className?: string }) {
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
-          <CommandEmpty>No results found.</CommandEmpty>
+          
           <CommandGroup heading="Social">
             <CommandItem onSelect={() => window.open("https://github.com/harshjha987", "_blank")}>
               <Github />
@@ -111,6 +111,10 @@ function Navbar({ className }: { className?: string }) {
             <CommandItem onSelect={() => window.open("https://x.com/thattallboy987", "_blank")}>
               <Twitter />
               <span>Twitter</span>
+            </CommandItem>
+            <CommandItem onSelect={() => window.open("https://www.instagram.com/_.that_tall_boy._/", "_blank")}>
+              <Instagram />
+              <span>Instagram</span>
             </CommandItem>
           </CommandGroup>
           <CommandSeparator />

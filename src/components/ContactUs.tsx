@@ -1,8 +1,7 @@
 "use client"
 import { Github, Instagram, Linkedin, Twitter } from 'lucide-react'
 import React, { useState } from 'react'
-const apiUrl = process.env.NEXT_PUBLIC_BASE_URL
-console.log(apiUrl)
+
 type ContactForm = {
     firstName : string,
     lastName : string,
@@ -23,13 +22,14 @@ function ContactUs() {
         e.preventDefault();
         setStatus('loading')
         try {
-            const res = await fetch(`${apiUrl}/send`,{
+            const res = await fetch("/api/send",{
                 method : "POST",
                 headers : {
                     'Content-Type' : 'application/json',
                 },
                 body : JSON.stringify({
-                    name : `${formData.firstName} ${formData.lastName}`,
+                    firstName : `${formData.firstName}`,
+                    lastName :  `${formData.lastName}`,
                     email : formData.email,
                     message : formData.message
                 })
