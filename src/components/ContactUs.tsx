@@ -52,9 +52,9 @@ function ContactUs() {
     <section className="bg-black border-t-2 border-b-4 dark:bg-black ">
     < div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
         <div className='p-4 pl-5' >
-            <p className="font-medium text-2xl font-mono text-blue-500 dark:text-purple-400 pl-4">Harsh Ranjan Jha</p>
+            <p className="font-medium text-2xl font-mono text-purple-400 dark:text-purple-400 pl-4">Harsh Ranjan Jha</p>
 
-            <p className="mt-2 text-base font-semibold font-mono text-gray-800 md:text-base dark:text-zinc-300/70 pl-4">
+            <p className="mt-2 text-base font-semibold font-mono text-zinc-300/70 md:text-base dark:text-zinc-300/70 pl-4">
             Aspiring Software Developer with expertise in web development. Proficient at problem-solving and creating efficient, scalable web solutions.
              Proven ability to tackle complex challenges and deliver high-quality results.
                 </p>

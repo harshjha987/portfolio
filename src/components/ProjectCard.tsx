@@ -13,7 +13,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ title, description, img, link, tech = [] }: ProjectCardProps) {
   return (
-    <div className="max-w-xs w-full rounded-md shadow-xl overflow-hidden bg-white dark:bg-gray-900 text-black dark:text-white">
+    <div className="max-w-xs w-full rounded-md shadow-xl overflow-hidden bg-gray-900 dark:bg-gray-900 text-white dark:text-white">
       {/* Top Image */}
       <div className="h-48 w-full">
         <img
