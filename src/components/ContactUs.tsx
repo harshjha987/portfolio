@@ -49,7 +49,7 @@ function ContactUs() {
 
     }
   return (
-    <section className="bg-black border-t-2 border-b-4 dark:bg-black ">
+    <section className="bg-black border-t-1 border-b-4 dark:bg-black ">
     < div className="grid grid-cols-1 gap-12 mt-10 lg:grid-cols-2">
         <div className='p-4 pl-5' >
             <p className="font-medium text-2xl font-mono text-purple-400 dark:text-purple-400 pl-4">Harsh Ranjan Jha</p>
