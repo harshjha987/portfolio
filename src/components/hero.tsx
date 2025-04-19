@@ -30,7 +30,7 @@ export function Hero() {
         </p>
         <a href="/HarshRanjanJha_CV.pdf" target="_blank" rel="noopener noreferrer">
         <Button borderRadius="1.75rem"
-        className="bg-white dark:bg-slate-900 font-semibold text-base font-sans  text-zinc-300 dark:text-purple-400 dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]
+        className="bg-slate-900 dark:bg-slate-900 font-semibold text-base font-sans  text-zinc-300 dark:text-purple-400 dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]
          border-neutral-200 dark:border-slate-800 "
          >
           Check my Resume

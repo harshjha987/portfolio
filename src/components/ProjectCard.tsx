@@ -33,7 +33,7 @@ export function ProjectCard({ title, description, img, link, tech = [] }: Projec
           {tech.map((tag, index) => (
             <span
               key={index}
-              className="bg-gray-200 dark:bg-gray-700 text-xs text-black dark:text-white px-2 py-1 rounded-md"
+              className="bg-gray-700 dark:bg-gray-700 text-xs text-black dark:text-white px-2 py-1 rounded-md"
             >
               {tag}
             </span>
