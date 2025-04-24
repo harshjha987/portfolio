@@ -104,19 +104,19 @@ function Navbar({ className }: { className?: string }) {
           
           <CommandGroup heading="Social">
             <CommandItem onSelect={() => window.open("https://github.com/harshjha987", "_blank")}>
-              <Github />
+              <Github className="text-black dark:text-white"/>
               <span>Github</span>
             </CommandItem>
             <CommandItem onSelect={() => window.open("https://www.linkedin.com/in/hrjha987/", "_blank")}>
-              <Linkedin />
+              <Linkedin className="text-black dark:text-white"/>
               <span>Linked In</span>
             </CommandItem>
             <CommandItem onSelect={() => window.open("https://x.com/thattallboy987", "_blank")}>
-              <Twitter />
+              <Twitter className="text-black dark:text-white"/>
               <span>Twitter</span>
             </CommandItem>
             <CommandItem onSelect={() => window.open("https://www.instagram.com/_.that_tall_boy._/", "_blank")}>
-              <Instagram />
+              <Instagram className="text-black dark:text-white"/>
               <span>Instagram</span>
             </CommandItem>
           </CommandGroup>
@@ -128,7 +128,7 @@ function Navbar({ className }: { className?: string }) {
        <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
   <SheetTrigger asChild>
     
-    <MenuIcon className="h-5 w-5 mt-[5px]" />
+    <MenuIcon className="h-5 w-5 mt-[5px] text-black dark:text-white" />
     
     
   </SheetTrigger>

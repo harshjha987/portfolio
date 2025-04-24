@@ -62,17 +62,17 @@ function ContactUs() {
                 <div className='flex flex-row mt-4 gap-6 p-4'>
                     
                     <a href="https://x.com/thattallboy987" target="_blank" rel="noopener noreferrer">
-                               <Twitter />
+                               <Twitter className="text-black dark:text-white" />
                               </a>
                              
                               <a href="https://github.com/harshjha987" target="_blank" rel="noopener noreferrer">
-                              <Github />
+                              <Github className="text-black dark:text-white" />
                               </a>
                               <a href="https://www.linkedin.com/in/hrjha987/" target="_blank" rel="noopener noreferrer">
-           <Linkedin />
+           <Linkedin className="text-black dark:text-white" />
           </a>
           <a href="https://www.instagram.com/_.that_tall_boy._/" target="_blank" rel="noopener noreferrer">
-           <Instagram />
+           <Instagram className="text-black dark:text-white" />
           </a>
           
 
