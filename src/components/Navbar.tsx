@@ -104,19 +104,19 @@ function Navbar({ className }: { className?: string }) {
           
           <CommandGroup heading="Social">
             <CommandItem onSelect={() => window.open("https://github.com/harshjha987", "_blank")}>
-              <Github className="text-black dark:text-white"/>
+              <Github className="text-white"/>
               <span>Github</span>
             </CommandItem>
             <CommandItem onSelect={() => window.open("https://www.linkedin.com/in/hrjha987/", "_blank")}>
-              <Linkedin className="text-black dark:text-white"/>
+              <Linkedin className="text-white"/>
               <span>Linked In</span>
             </CommandItem>
             <CommandItem onSelect={() => window.open("https://x.com/thattallboy987", "_blank")}>
-              <Twitter className="text-black dark:text-white"/>
+              <Twitter className="text-white"/>
               <span>Twitter</span>
             </CommandItem>
             <CommandItem onSelect={() => window.open("https://www.instagram.com/_.that_tall_boy._/", "_blank")}>
-              <Instagram className="text-black dark:text-white"/>
+              <Instagram className="text-white"/>
               <span>Instagram</span>
             </CommandItem>
           </CommandGroup>
@@ -128,7 +128,7 @@ function Navbar({ className }: { className?: string }) {
        <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
   <SheetTrigger asChild>
     
-    <MenuIcon className="h-5 w-5 mt-[5px] text-black dark:text-white" />
+    <MenuIcon className="h-5 w-5 mt-[5px] text-white" />
     
     
   </SheetTrigger>
@@ -136,8 +136,8 @@ function Navbar({ className }: { className?: string }) {
   <SheetContent>
   
     
-      <div className="space-y-4 pl-6 font-mono">
-      <div className="flex gap-1 items-center mt-6">
+      <div className="space-y-4 pl-6 font-mono bg-black">
+      <div className="flex gap-1 items-center mt-6 bg-black text-white">
       <Link href= '/' onClick={() => setSheetOpen(false)}>
         <MenuItem setActive={setActive} active={active} item="Home" >
           
