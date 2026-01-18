@@ -409,8 +409,6 @@ const tech = [
   ),
   name: "SQL",
 },
-
-
   
   {
     svg: (

@@ -25,8 +25,8 @@ export function Hero() {
         <h3 className="md:text-2xl text-xl font-medium text-zinc-300/90 font-serif">Software Engineer.</h3>
         <p className=" mt-4 max-w-lg font-normal font-mono tracking-tight  text-base 
         md:text-lg/7 leading-7  text-zinc-300/70 mb-4">
-        I’m Harsh, a Computer Science graduate passionate about full-stack development and Gen-AI. I enjoy building meaningful tech,
-         contributing to open-source, and bringing ideas to life through code.
+        I’m Harsh — a final-year Computer Science student passionate about full-stack development and Gen-AI.
+         I love building meaningful tech, contributing to open-source, and bringing ideas to life through code.
         </p>
         <a href="/HarshRanjanJha_CV.pdf" target="_blank" rel="noopener noreferrer">
         <Button borderRadius="1.75rem"
