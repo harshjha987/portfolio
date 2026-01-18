@@ -379,6 +379,40 @@ const tech = [
     name: "Java",
   },
   {
+  svg: (
+    <svg
+      className="md:20 sm:16"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256 256"
+    >
+      <circle cx="128" cy="128" r="120" fill="#6DB33F" />
+      <path
+        d="M74 140c28-38 86-52 108-84-4 48-44 96-96 96-6 0-8-6-12-12z"
+        fill="#ffffff"
+      />
+    </svg>
+  ),
+  name: "Spring Boot",
+},
+{
+  svg: (
+    <svg
+      className="md:20 sm:16"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256 256"
+    >
+      <ellipse cx="128" cy="48" rx="96" ry="32" fill="#4A90E2" />
+      <rect x="32" y="48" width="192" height="128" fill="#4A90E2" />
+      <ellipse cx="128" cy="176" rx="96" ry="32" fill="#357ABD" />
+      <ellipse cx="128" cy="48" rx="96" ry="32" fill="#5DA9FF" />
+    </svg>
+  ),
+  name: "SQL",
+},
+
+
+  
+  {
     svg: (
       <svg
         className="md:20 sm:16"

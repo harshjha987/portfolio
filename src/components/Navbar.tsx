@@ -125,10 +125,10 @@ function Navbar({ className }: { className?: string }) {
         </CommandList>
       </CommandDialog>
       
-       <Sheet open={sheetOpen} onOpenChange={setSheetOpen} >
-  <SheetTrigger asChild>
+       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}  >
+  <SheetTrigger asChild className = "bg-black text-white">
     
-    <MenuIcon className="h-5 w-5 mt-[5px] text-white" />
+    <MenuIcon className="h-5 w-5 mt-[5px] text-white " />
     
     
   </SheetTrigger>
