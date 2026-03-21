@@ -78,7 +78,7 @@ function ContactUs() {
 
                 </div>
                 <div className='p-4 text-sm'>
-                    <p className='text-zinc-300/70 font-sans'>©2025. Harsh Ranjan Jha.</p>
+                    <p className='text-zinc-300/70 font-sans'>©2026. Harsh Ranjan Jha.</p>
                     <p className='text-zinc-300/70 font-sans'>All rights reserved.</p>
                 </div>
 

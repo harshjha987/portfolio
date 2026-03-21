@@ -1,6 +1,16 @@
+import { BiLogoSpringBoot } from "react-icons/bi";
 import { ProjectCard } from "./ProjectCard";
+import { GrReactjs } from "react-icons/gr";
 
 const projects = [
+  {
+    title: "NOMADCabs",
+    description:"Real Time Cab Management Application.",
+    img: "/logo-dark.png",
+    link:"https://github.com/harshjha987/nomad_Cabs",
+    tech : ["SpringBoot", "Reactjs", "MySql"],
+  }
+  ,
   {
     title: "Shortrix",
     description: "A full-stack URL shortener with user auth and analytics.",
@@ -10,13 +20,13 @@ const projects = [
     
     tech: ["Nexjs", "Node.js", "MongoDB","Aceternity Ui"],
   },
-  {
-    title: "Mira Ai",
-    description: "Personalised chatbot for career counseling(Currently under Construction)",
-    img: "/mira.jpg",
-    link: "https://simplebot-delta.vercel.app/",
-    tech: ["React", "Gemini API"],
-  },
+  // {
+  //   title: "Mira Ai",
+  //   description: "Personalised chatbot for career counseling(Currently under Construction)",
+  //   img: "/mira.jpg",
+  //   link: "https://simplebot-delta.vercel.app/",
+  //   tech: ["React", "Gemini API"],
+  // },
   {
     title: 'HomeHub',
     description: 'HomeHub is a real estate platform where buyers can purchase homes and sellers can list properties for sale.',

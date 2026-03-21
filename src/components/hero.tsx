@@ -25,10 +25,10 @@ export function Hero() {
         <h3 className="md:text-2xl text-xl font-medium text-zinc-300/90 font-serif">Software Engineer.</h3>
         <p className=" mt-4 max-w-lg font-normal font-mono tracking-tight  text-base 
         md:text-lg/7 leading-7  text-zinc-300/70 mb-4">
-        I’m Harsh, a Computer Science graduate passionate about full-stack development and Gen-AI. I enjoy building meaningful tech,
+        I’m Harsh, a Software Developer passionate about full-stack development and Gen-AI. I enjoy building meaningful tech,
          contributing to open-source, and bringing ideas to life through code.
         </p>
-        <a href="/HarshRanjanJha_CV.pdf" target="_blank" rel="noopener noreferrer">
+        <a href="/newCV.pdf" target="_blank" rel="noopener noreferrer">
         <Button borderRadius="1.75rem"
         className="bg-slate-900 dark:bg-slate-900 font-semibold text-base font-sans  text-purple-400 dark:text-purple-400 dark:drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]
          border-slate-800 dark:border-slate-800 "
