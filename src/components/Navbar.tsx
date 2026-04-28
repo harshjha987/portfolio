@@ -48,21 +48,14 @@ function Navbar({ className }: { className?: string }) {
       </Link>
       
       <div className="hidden md:flex items-center space-x-10 font-mono text-[15px] font-medium ">
-        <div className="flex gap-1 items-center">
+        <div className="flex gap-1 items-center ">
         <Link href= '/'>
-        <MenuItem setActive={setActive} active={active} item="Home" >
+        <MenuItem setActive={setActive} active={active}  item="Home" >
           
         </MenuItem>
         </Link>
         </div>
-        <div className="flex gap-1 items-center">
-          <Link href = "#hero">
-         
-        <MenuItem setActive={setActive} active={active} item="About">
-          
-        </MenuItem>
-        </Link>
-        </div>
+        
         <div className="flex gap-1 items-center">
           <Link href = "#projects">
         <MenuItem setActive={setActive} active={active} item="Projects">
@@ -144,16 +137,7 @@ function Navbar({ className }: { className?: string }) {
         </MenuItem>
         </Link>
         </div>
-        <div className="flex gap-1 items-center">
-        <button onClick={() => setSheetOpen(false)}>
-          <Link href = "#hero">
-         
-        <MenuItem setActive={setActive} active={active} item="About">
-          
-        </MenuItem>
-        </Link>
-        </button>
-        </div>
+        
         <div className="flex gap-1 items-center">
         <button onClick={() => setSheetOpen(false)}>
         <Link href = "#projects">

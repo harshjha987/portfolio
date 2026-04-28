@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Harsh Ranjan Jha",
   description: "Personal portfolio of Harsh Ranjan Jha",
+  icons: {
+    icon: '/icon.png'
+  }
 };
 
 export default function RootLayout({
