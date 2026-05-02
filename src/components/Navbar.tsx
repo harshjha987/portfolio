@@ -57,7 +57,7 @@ function Navbar({ className }: { className?: string }) {
         </div>
         
         <div className="flex gap-1 items-center">
-          <Link href = "#projects">
+          <Link href = "/#projects">
         <MenuItem setActive={setActive} active={active} item="Projects">
           
         </MenuItem>
@@ -140,7 +140,7 @@ function Navbar({ className }: { className?: string }) {
         
         <div className="flex gap-1 items-center">
         <button onClick={() => setSheetOpen(false)}>
-        <Link href = "#projects">
+        <Link href = "/#projects">
         <MenuItem setActive={setActive} active={active} item="Projects">
           
         </MenuItem>

@@ -12,7 +12,9 @@ import { getHashnodePosts } from "../../lib/hashnode";
         </div>
 
         <div className="relative z-10 w-full max-w-5xl text-center">
-          <h1 className="text-4xl font-bold mb-10">My Blog Posts</h1>
+          <h1 className="text-4xl font-mono mb-3 text-transparent font-semibold bg-gradient-to-r from-purple-400 to-pink-500
+  bg-clip-text">My Blogs</h1>
+  <p className="text-gray-400 text-sm mb-6 font-mono">Things I learned, built, or just had to write about.</p>
 
           <div className="grid grid-cols-1 gap-6">
             {posts.map((post, index) => (
@@ -28,15 +30,9 @@ import { getHashnodePosts } from "../../lib/hashnode";
           ✦ Recent
         </span>
       )}
-                {post.coverImage?.url && (
-                  <img
-                    src={post.coverImage.url}
-                    alt={post.title}
-                    className="w-full h-48 object-cover rounded-md mb-4"
-                  />
-                )}
+                
                 <h2 className="text-xl font-semibold">{post.title}</h2>
-                <p className="text-gray-300 mt-2">{post.brief}</p>
+                <p className="text-gray-300 mt-2 line-clamp-1">{post.brief}</p>
                 <p className="text-sm text-gray-400 mt-4">
                   Published on {post.publishedAt.toString().split("T")[0]}
                 </p>

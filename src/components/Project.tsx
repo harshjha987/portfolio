@@ -66,7 +66,8 @@ export default function Projects() {
 
     return (
       <section className="py-20 px-6 bg-black text-white border-b-2">
-        <h2 className="text-5xl font-bold mb-16 text-center font-mono text-neutral">Projects</h2>
+         <h2 className="text-5xl font-semibold mb-16 text-center font-mono text-transparent bg-gradient-to-r from-purple-400 to-pink-500
+  bg-clip-text">Projects</h2>
         <div className="grid md:grid-cols-3 grid-cols-1 gap-6 place-items-center">
           {displayed.map((proj, index) => (
             <ProjectCard key={index} {...proj} />

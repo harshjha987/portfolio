@@ -25,13 +25,14 @@ export const MenuItem = ({
   children?: React.ReactNode;
 }) => {
   return (
-    <div onMouseEnter={() => setActive(item)} className="relative ">
+     <div onMouseEnter={() => setActive(item)} className="relative group">
       <motion.p
         transition={{ duration: 0.3 }}
         className="cursor-pointer text-gray-300 hover:text-white dark:text-gray-300 dark:hover:text-white transition-colors duration-200"
       >
         {item}
       </motion.p>
+      <span className="absolute -bottom-0.5 left-0 h-[1.5px] w-0 bg-gradient-to-r from-purple-400 to-pink-500 transition-all duration-300 group-hover:w-full" />
       {active !== null && (
         <motion.div
           initial={{ opacity: 0, scale: 0.85, y: 10 }}

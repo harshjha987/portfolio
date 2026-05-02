@@ -1,6 +1,7 @@
 import { getHashnodePost, getHashnodePosts } from '../../../lib/hashnode';
   import { notFound } from 'next/navigation';
   import Link from 'next/link';
+import ShareButton from "../../../components/ShareButton";
 
   export async function generateStaticParams() {
     const posts = await getHashnodePosts();
@@ -67,11 +68,12 @@ import { getHashnodePost, getHashnodePosts } from '../../../lib/hashnode';
                 className="w-8 h-8 rounded-full"
               />
             )}
-            <span>{post.author?.name}</span>
-            <span>·</span>
-            <span>{post.publishedAt.split('T')[0]}</span>
+            <span className = "font-mono">Written by<span className = "font-bold text-white"> {post.author?.name}</span></span>
+            
+            <span className = "ml-4 font-mono">Published on <span className = "font-bold text-white">{post.publishedAt.split('T')[0]}</span></span>
             <span>·</span>
             <span>{post.readTimeInMinutes} min read</span>
+             <ShareButton title={post.title} />
           </div>
 
           <article
