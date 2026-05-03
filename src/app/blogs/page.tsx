@@ -1,11 +1,25 @@
 import { getHashnodePosts } from "../../lib/hashnode";
   import Link from "next/link";
+  export const metadata = {
+    title: "My Blogs",
+    description: "Thoughts and writings on web, cloud, AI, and open-source.",
+    openGraph: {
+      title: "My Blogs | Harsh Ranjan Jha",
+      description: "Thoughts and writings on web, cloud, AI, and open-source.",
+      type: "website",
+    },
+    twitter: {
+      card: "summary",
+      title: "My Blogs | Harsh Ranjan Jha",
+      description: "Thoughts and writings on web, cloud, AI, and open-source.",
+    },
+  };
 
   export default async function BlogsPage() {
     const posts = await getHashnodePosts();
 
     return (
-      <div className="relative px-4 pt-28 pb-20 isolate flex items-center justify-center min-h-screen bg-black text-white">
+      <div className="relative px-4 pt-28 pb-20 isolate flex  justify-center min-h-screen bg-black text-white">
         <div className="absolute inset-0 flex items-center justify-center z-0">
           <div className="h-[600px] w-[600px] bg-gradient-to-r from-purple-500 via-pink-400 to-yellow-300 rounded-full blur-[120px]
   opacity-30" />

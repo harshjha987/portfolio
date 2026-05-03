@@ -14,13 +14,51 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
-  title: "Harsh Ranjan Jha",
-  description: "Personal portfolio of Harsh Ranjan Jha",
-  icons: {
-    icon: '/icon.png'
-  }
-};
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://hrjhaa.me"),
+    title: {
+      default: "Harsh Ranjan Jha — Software Engineer",
+      template: "%s | Harsh Ranjan Jha",
+    },
+    description:
+      "Software Engineer passionate about full-stack development and Gen-AI. Building with React, Next.js, Spring Boot, and AWS.",
+    keywords: [
+      "Software Engineer",
+      "Full Stack Developer",
+      "React",
+      "Next.js",
+      "Spring Boot",
+      "AWS",
+      "AI",
+      "Web Development",
+    ],
+    authors: [{ name: "Harsh Ranjan Jha" }],
+    creator: "Harsh Ranjan Jha",
+    openGraph: {
+      type: "website",
+      siteName: "Harsh Ranjan Jha",
+      title: "Harsh Ranjan Jha — Software Engineer",
+      description:
+        "Software Engineer passionate about full-stack development and Gen-AI.",
+      images: [{ url: "/icon.png", width: 1200, height: 630, alt: "Harsh Ranjan Jha" }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Harsh Ranjan Jha — Software Engineer",
+      description:
+        "Software Engineer passionate about full-stack development and Gen-AI.",
+      creator: "@thattallboy987",
+      images: ["/icon.png"],
+    },
+    icons: {
+      icon: "/icon.png",
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  };
 
 export default function RootLayout({
   children,

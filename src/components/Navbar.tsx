@@ -47,7 +47,7 @@ function Navbar({ className }: { className?: string }) {
       
       </Link>
       
-      <div className="hidden md:flex items-center space-x-10 font-mono text-[15px] font-medium ">
+      <div className="hidden md:flex items-center space-x-10 font-mono text-[14px]  ">
         <div className="flex gap-1 items-center ">
         <Link href= '/'>
         <MenuItem setActive={setActive} active={active}  item="Home" >

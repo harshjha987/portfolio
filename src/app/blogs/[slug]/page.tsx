@@ -8,6 +8,41 @@ import ShareButton from "../../../components/ShareButton";
     return posts.map((post) => ({ slug: post.slug }));
   }
 
+  
+  export async function generateMetadata({
+    params,
+  }: {
+    params: Promise<{ slug: string }>;
+  }) {
+    const { slug } = await params;
+    const post = await getHashnodePost(slug);
+
+    if (!post) return { title: "Post Not Found" };
+
+    return {
+      title: post.title,
+      description: post.brief,
+      openGraph: {
+        title: post.title,
+        description: post.brief,
+        type: "article",
+        publishedTime: post.publishedAt,
+        authors: [post.author?.name],
+        images: post.coverImage?.url
+          ? [{ url: post.coverImage.url, width: 1200, height: 630, alt: post.title }]
+          : [{ url: "/icon.png", width: 1200, height: 630 }],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: post.title,
+        description: post.brief,
+        creator: "@thattallboy987",
+        images: post.coverImage?.url ? [post.coverImage.url] : ["/icon.png"],
+      },
+    };
+  }
+
+
   export default async function BlogPostPage({
     params,
   }: {
@@ -25,7 +60,7 @@ import ShareButton from "../../../components/ShareButton";
   opacity-20" />
         </div>
 
-        <div className="relative z-10 max-w-3xl mx-auto px-4">
+        <div className="relative z-10 max-w-5xl mx-auto px-4">
           <Link
             href="/blogs"
             className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition mb-8"
@@ -33,17 +68,9 @@ import ShareButton from "../../../components/ShareButton";
             ← Back to Blogs
           </Link>
 
-          {post.coverImage?.url && (
-            <div className="w-full h-64 md:h-80 rounded-xl overflow-hidden mb-8">
-              <img
-                src={post.coverImage.url}
-                alt={post.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
+          
 
-          {post.tags?.length > 0 && (
+          {/* {post.tags?.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-4">
               {post.tags.map((tag) => (
                 <span
@@ -54,9 +81,10 @@ import ShareButton from "../../../components/ShareButton";
                 </span>
               ))}
             </div>
-          )}
+          )} */}
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-semibold mb-4 leading-tight
+          text-transparent bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text">
             {post.title}
           </h1>
 
