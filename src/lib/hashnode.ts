@@ -26,7 +26,7 @@ export interface HashnodePost {
     const query = `
       query {
         publication(host: "${HASHNODE_HOST}") {
-          posts(first: 10) {
+          posts(first: 10 , sortBy: DATE_PUBLISHED_DESC) {
             edges {
               node {
                 title
@@ -45,7 +45,7 @@ export interface HashnodePost {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }),
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     });
 
     const json = await response.json();
@@ -78,7 +78,7 @@ export interface HashnodePost {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query }),
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     });
 
     const json = await response.json();
