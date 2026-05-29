@@ -53,7 +53,7 @@
 
   async function fetchRSS(): Promise<string> {
     const res = await fetch(`https://${HASHNODE_HOST}/rss.xml`, {
-      next: { revalidate: 300 },
+      cache: 'no-store',
     });
     return res.text();
   }
