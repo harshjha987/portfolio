@@ -1,6 +1,7 @@
 import { getHashnodePosts } from "../../lib/hashnode";
   import Link from "next/link";
   export const dynamic = 'force-dynamic';
+   export const runtime = 'edge';
   export const metadata = {
     title: "My Blogs",
     description: "Thoughts and writings on web, cloud, AI, and open-source.",
