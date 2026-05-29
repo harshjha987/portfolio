@@ -3,11 +3,9 @@ import { getHashnodePost, getHashnodePosts } from '../../../lib/hashnode';
   import Link from 'next/link';
 import ShareButton from "../../../components/ShareButton";
 export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
-  export async function generateStaticParams() {
-    const posts = await getHashnodePosts();
-    return posts.map((post) => ({ slug: post.slug }));
-  }
+  
 
   
   export async function generateMetadata({
