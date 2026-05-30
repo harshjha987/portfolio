@@ -2,8 +2,6 @@ import { getHashnodePost, getHashnodePosts } from '../../../lib/hashnode';
   import { notFound } from 'next/navigation';
   import Link from 'next/link';
 import ShareButton from "../../../components/ShareButton";
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
 
   
 
