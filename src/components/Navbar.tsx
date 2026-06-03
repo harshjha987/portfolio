@@ -41,7 +41,7 @@ function Navbar({ className }: { className?: string }) {
       <Menu setActive={setActive}>
       <Link href= '/'>
       <div className="flex items-center ">
-        <img src= "/s (1).png" className="md:h-10 md:w-26 h-8 w-22 "/>
+        <img src= "/logoHarsh.png" className="md:h-10 md:w-26 h-8 w-22 "/>
       </div>
       
       
