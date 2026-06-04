@@ -12,6 +12,7 @@ import { NextRequest, NextResponse } from 'next/server'
     }
   }
 
+  
   export const config = {
-    matcher: ['/((?!_next|api|favicon).*)'],
+    matcher: ['/((?!_next|api|favicon|.*\\..*).*)', ],
   }
