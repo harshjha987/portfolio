@@ -4,15 +4,13 @@ import { NextRequest, NextResponse } from 'next/server'
     const hostname = request.headers.get('host') || ''
     const isBlogs = hostname.startsWith('blogs.')
 
-    if (isBlogs) {
+    if (isBlogs && !request.nextUrl.pathname.startsWith('/blogs')) {
       const url = request.nextUrl.clone()
-      const path = url.pathname === '/' ? '/blogs' : `/blogs${url.pathname}`
-      url.pathname = path
+      url.pathname = url.pathname === '/' ? '/blogs' : `/blogs${url.pathname}`
       return NextResponse.rewrite(url)
     }
   }
 
-  
   export const config = {
-    matcher: ['/((?!_next|api|favicon|.*\\..*).*)', ],
+    matcher: ['/((?!_next|api|favicon|.*\\..*).*)',],
   }
