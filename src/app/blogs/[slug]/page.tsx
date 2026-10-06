@@ -1,42 +1,9 @@
-import { getHashnodePost, getHashnodePosts } from '../../../lib/hashnode';
+import { getHashnodePost } from '../../../lib/hashnode';
   import { notFound } from 'next/navigation';
   import Link from 'next/link';
 import ShareButton from "../../../components/ShareButton";
 
- import { getHashnodePost } from '../../../lib/hashnode';
 
-  
-
-  
-
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.brief,
-    author: {
-      "@type": "Person",
-      name: "Harsh Ranjan Jha",
-      url: "https://hrjhaa.me",
-    },
-    publisher: {
-      "@type": "Person",
-      name: "Harsh Ranjan Jha",
-      url: "https://hrjhaa.me",
-    },
-    datePublished: post.publishedAt,
-    url: `https://hrjhaa.me/blogs/${slug}`,
-    keywords: post.tags?.map((t) => t.name).join(", "),
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://hrjhaa.me/blogs/${slug}`,
-    },
-  };
-
-
-  
-
-  
    export async function generateMetadata({
     params,
   }: {
@@ -85,6 +52,31 @@ import ShareButton from "../../../components/ShareButton";
     const post = await getHashnodePost(slug);
 
     if (!post) notFound();
+    const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.brief,
+    author: {
+      "@type": "Person",
+      name: "Harsh Ranjan Jha",
+      url: "https://hrjhaa.me",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Harsh Ranjan Jha",
+      url: "https://hrjhaa.me",
+    },
+    datePublished: post.publishedAt,
+    url: `https://hrjhaa.me/blogs/${slug}`,
+    keywords: post.tags?.map((t) => t.name).join(", "),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://hrjhaa.me/blogs/${slug}`,
+    },
+  };
+
+
 
     return (
       <div className="relative isolate min-h-screen bg-black text-white pt-24 pb-20">
