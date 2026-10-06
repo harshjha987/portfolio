@@ -3,12 +3,9 @@ import { getHashnodePost, getHashnodePosts } from '../../../lib/hashnode';
   import Link from 'next/link';
 import ShareButton from "../../../components/ShareButton";
 
- import { getHashnodePost, getHashnodePosts } from '../../../lib/hashnode';
+ import { getHashnodePost } from '../../../lib/hashnode';
 
-  export async function generateStaticParams() {
-    const posts = await getHashnodePosts();
-    return posts.map((post) => ({ slug: post.slug }));
-  }
+  
 
   
 
