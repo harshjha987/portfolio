@@ -22,6 +22,7 @@ export function Hero() {
         <h1 className="bg-opacity-50 bg-gradient-to-b from-neutral-50 to-neutral-400 bg-clip-text   font-sans
         tracking-tight text-4xl text-white  tracking-tight md:text-5xl lg:text-6xl opacity: 1   leading-[0.95] mb-1  transform: none">
           <span className="md:mr-2 font-sans">Hi,</span> <span className="md:mr-2 font-sans">  I'm</span><span className="font-sans text-transparent bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text"> Harsh</span>
+           <span className="sr-only"> Ranjan Jha</span>
         </h1>
         <h3 
   className="md:text-2xl mt-3 text-xl tracking-normal leading-none text-zinc-500 font-mono"

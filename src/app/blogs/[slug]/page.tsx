@@ -3,10 +3,44 @@ import { getHashnodePost, getHashnodePosts } from '../../../lib/hashnode';
   import Link from 'next/link';
 import ShareButton from "../../../components/ShareButton";
 
+ import { getHashnodePost, getHashnodePosts } from '../../../lib/hashnode';
+
+  export async function generateStaticParams() {
+    const posts = await getHashnodePosts();
+    return posts.map((post) => ({ slug: post.slug }));
+  }
+
+  
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.brief,
+    author: {
+      "@type": "Person",
+      name: "Harsh Ranjan Jha",
+      url: "https://hrjhaa.me",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Harsh Ranjan Jha",
+      url: "https://hrjhaa.me",
+    },
+    datePublished: post.publishedAt,
+    url: `https://hrjhaa.me/blogs/${slug}`,
+    keywords: post.tags?.map((t) => t.name).join(", "),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://hrjhaa.me/blogs/${slug}`,
+    },
+  };
+
+
   
 
   
-  export async function generateMetadata({
+   export async function generateMetadata({
     params,
   }: {
     params: Promise<{ slug: string }>;
@@ -16,25 +50,30 @@ import ShareButton from "../../../components/ShareButton";
 
     if (!post) return { title: "Post Not Found" };
 
+    const keywords = post.tags?.map((t) => t.name) ?? [];
+
     return {
       title: post.title,
       description: post.brief,
+      keywords: [...keywords, "Harsh Ranjan Jha", "Harsh blog"],
+      alternates: {
+        canonical: `https://hrjhaa.me/blogs/${slug}`,
+      },
       openGraph: {
         title: post.title,
         description: post.brief,
         type: "article",
+        url: `https://hrjhaa.me/blogs/${slug}`,
         publishedTime: post.publishedAt,
-        authors: [post.author?.name],
-        images: post.coverImage?.url
-          ? [{ url: post.coverImage.url, width: 1200, height: 630, alt: post.title }]
-          : [{ url: "/icon.png", width: 1200, height: 630 }],
+        authors: ["Harsh Ranjan Jha"],
+        images: [],    // no cover image in social previews
       },
       twitter: {
-        card: "summary_large_image",
+        card: "summary",   // text-only card, no image
         title: post.title,
         description: post.brief,
         creator: "@thattallboy987",
-        images: post.coverImage?.url ? [post.coverImage.url] : ["/icon.png"],
+        images: [],
       },
     };
   }
@@ -52,6 +91,10 @@ import ShareButton from "../../../components/ShareButton";
 
     return (
       <div className="relative isolate min-h-screen bg-black text-white pt-24 pb-20">
+         <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
         <div className="fixed inset-0 flex items-center justify-center z-0 pointer-events-none">
           <div className="h-[600px] w-[600px] bg-gradient-to-r from-purple-500 via-pink-400 to-yellow-300 rounded-full blur-[160px]
   opacity-20" />
@@ -67,7 +110,7 @@ import ShareButton from "../../../components/ShareButton";
 
           
 
-          {/* {post.tags?.length > 0 && (
+          {post.tags?.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-4">
               {post.tags.map((tag) => (
                 <span
@@ -78,7 +121,7 @@ import ShareButton from "../../../components/ShareButton";
                 </span>
               ))}
             </div>
-          )} */}
+          )}
 
           <h1 className="text-3xl md:text-4xl font-semibold mb-4 leading-tight
           text-transparent bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text">

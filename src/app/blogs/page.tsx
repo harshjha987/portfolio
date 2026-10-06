@@ -2,25 +2,52 @@ import { getHashnodePosts } from "../../lib/hashnode";
   import Link from "next/link";
   
   export const metadata = {
-    title: "My Blogs",
-    description: "Thoughts and writings on web, cloud, AI, and open-source.",
+    title: "Blog",
+    description:
+      "Technical blog by Harsh Ranjan Jha – articles on web development, cloud, AI, and open-source.",
+    keywords: [
+      "Harsh Ranjan Jha blog",
+      "Harsh blog",
+      "web development blog",
+      "React blog",
+      "Next.js blog",
+      "cloud blog",
+      "AI blog",
+      "software engineering blog",
+    ],
     openGraph: {
-      title: "My Blogs | Harsh Ranjan Jha",
-      description: "Thoughts and writings on web, cloud, AI, and open-source.",
+      title: "Blog | Harsh Ranjan Jha",
+      description:
+        "Technical articles by Harsh Ranjan Jha on web development, cloud, AI, and open-source.",
       type: "website",
+      images: [],        // no preview image for blog listing
     },
     twitter: {
-      card: "summary",
-      title: "My Blogs | Harsh Ranjan Jha",
-      description: "Thoughts and writings on web, cloud, AI, and open-source.",
+      card: "summary",   // no large image card
+      title: "Blog | Harsh Ranjan Jha",
+      description:
+        "Technical articles by Harsh Ranjan Jha on web development, cloud, AI, and open-source.",
+      images: [],
     },
   };
 
   export default async function BlogsPage() {
     const posts = await getHashnodePosts();
+    const breadcrumbJsonLd = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://hrjhaa.me" },
+        { "@type": "ListItem", position: 2, name: "Blog", item: "https://hrjhaa.me/blogs" },
+      ],
+    };
 
     return (
       <div className="relative px-4 pt-28 pb-20 isolate flex  justify-center min-h-screen bg-black text-white">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        />
         <div className="absolute inset-0 flex items-center justify-center z-0">
           <div className="h-[600px] w-[600px] bg-gradient-to-r from-purple-500 via-pink-400 to-yellow-300 rounded-full blur-[120px]
   opacity-30" />

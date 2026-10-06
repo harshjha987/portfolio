@@ -1,6 +1,15 @@
 {
   "posts": [
     {
+      "title": "Understanding Linux Processes: Signals and Why kill -9 is a last option.",
+      "brief": "Every backend developer must have faced one issue once while trying to start their local server : Port 8080 (for example) is already in use. Then many devs immediately google the issue and run the com",
+      "slug": "understanding-linux-processes-signals-and-why-kill-9-is-a-last-option",
+      "coverImage": {
+        "url": ""
+      },
+      "publishedAt": "2026-10-06T12:36:06.000Z"
+    },
+    {
       "title": "How HashMap Works Internally in Java — Explained Simply",
       "brief": "Introduction:-\nYou use HashMap every day in Java. But have you ever wondered what actually happens when you write map.put(\"name\", \"Harsh\")? Where does it go? How does Java find it so fast? Let's break",
       "slug": "how-hashmap-works-internally-in-java-explained-simply",
@@ -83,6 +92,37 @@
     }
   ],
   "fullPosts": {
+    "understanding-linux-processes-signals-and-why-kill-9-is-a-last-option": {
+      "title": "Understanding Linux Processes: Signals and Why kill -9 is a last option.",
+      "brief": "Every backend developer must have faced one issue once while trying to start their local server : Port 8080 (for example) is already in use. Then many devs immediately google the issue and run the com",
+      "slug": "understanding-linux-processes-signals-and-why-kill-9-is-a-last-option",
+      "coverImage": {
+        "url": ""
+      },
+      "publishedAt": "2026-10-06T12:36:06.000Z",
+      "content": {
+        "html": "<p>Every backend developer must have faced one issue once while trying to start their local server : <strong>Port 8080 (for example) is already in use.</strong> Then many devs immediately google the issue and run the command mostly <code>lsof -i :8080</code>, then grab the PID and without hesitation , run <code>kill -9 &lt;PID&gt;</code>. It works perfectly fine and the port is free, but in production using <code>kill -9</code> by default is like pulling the power cord from the wall every time you want to turn off your pc.</p>\n<p>To understand why this can be critical in production we first need to understand what <code>kill</code> command is doing under the hood.</p>\n<hr />\n<h2>What actually is a Linux process?</h2>\n<p>Before talking about killing or signals, lets take a step back: What is a process?</p>\n<ul>\n<li><p>A program (like spring boot jar file or python script) is just passive bytes sitting on your disk.</p>\n</li>\n<li><p>A <strong>process</strong> is that program brought to life. When you run it, the Linux kernel loads it into RAM, gives it CPU time, allocates memory and gives it a unique number tag: the <strong>PID (Process ID</strong>).</p>\n</li>\n</ul>\n<h2>What is Linux Signal ?</h2>\n<p>One of the biggest misconception in Linux is that kill command is used solely to terminate a process but in reality it is different. In Linux, a <strong>Signal</strong> is a standardized asynchronous notification sent by the OS kernel to inform a target process that a specific event has occurred . Think of it as a way of communication in which kernel taps a running program saying that <em>\"Hey something has happened, react to it\".</em></p>\n<p><em>If you run this command in your terminal :</em></p>\n<p><code>kill -l</code></p>\n<p>You won't see kill commands , Linux will send 64 different signals such as <code>SIGHUP</code>(terminal closed) and <code>SIGSEGV</code> (segmentation fault/memory crash).</p>\n<p>Out of these 64, we mostly deal with three signals almost every single day.</p>\n<ol>\n<li><p><code>SIGINT</code>(Signal 2): Triggered when you press <code>Ctrl + C</code> in the terminal to interrupt a running process.</p>\n</li>\n<li><p><code>SIGTERM</code>(Signal 15): This is the signal when you run <code>kill &lt;PID&gt;</code> without any flags. It politely request the process to shut down.</p>\n</li>\n<li><p><code>SIGKILL</code>(Signal 9): Sent when you run <code>kill -9 &lt;PID&gt;.</code> the <strong>kernel</strong> rips the process out of memory instantly. The app gets <strong>no chance</strong> to clean up. <strong>Cannot be caught, blocked, or ignored</strong> , the guaranteed way to kill a hung process</p>\n</li>\n</ol>\n<h3>\"Wait, If <code>Ctrl + C</code> Works, Why Do Ports Get Stuck in the First Place?\"</h3>\n<p>When you run your Spring Boot app in the terminal and press <code>Ctrl + C</code>, you are actually sending a <strong><code>SIGINT</code> (Signal 2)</strong>. The JVM catches this signal, Tomcat stops listening on port 8080, connections close, and the port is released cleanly.</p>\n<p>So why do we still find ourselves dealing with stuck ports and <code>kill</code> commands?</p>\n<ol>\n<li><strong>Closing the terminal directly:</strong> Closing your terminal window or VS Code tab without pressing <code>Ctrl + C</code> first leaves the child process running detached in the background.</li>\n<li><strong>IDE / Build tool disconnects:</strong> Tools like Maven (<code>./mvnw spring-boot:run</code>) or Gradle spawn a child Java process. Stopping the build tool in an IDE sometimes fails to terminate the underlying Java process.</li>\n<li><strong>No keyboard in Production:</strong> In production environments, background daemons, or CI pipelines, there is no interactive terminal. You cannot press <code>Ctrl + C</code>. Managing processes has to happen via scripts sending signals (<code>kill</code>).</li>\n</ol>\n<hr />\n<h2><strong>SIGTERM vs. SIGKILL: Graceful Shutdown vs. The Sledgehammer</strong></h2>\n<ol>\n<li><strong>SIGTERM (Signal 15): The Graceful Path</strong><br />The critical property of SIGTERM is that it can be caught and handled by your application code.</li>\n</ol>\n<p>Modern backend frameworks (Spring Boot, Express, Go, Django) register shutdown hooks that listen for SIGTERM. When received, the application enters <strong>Graceful Shutdown:</strong></p>\n<ul>\n<li><p>Stops accepting new traffic: Tells the load balancer it is going down.</p>\n</li>\n<li><p>Finishes active HTTP requests: Any user currently in the middle of a request gets their response instead of a random drop.</p>\n</li>\n<li><p>Closes database pools: Connections to MySQL/Postgres are cleanly closed rather than severed.</p>\n</li>\n<li><p>Flushes logs and caches: Cached memory is written to disk and locks are released.</p>\n</li>\n</ul>\n<p>Once cleanup is complete, the process exits peacefully with code 0.</p>\n<p><code>2.</code> <strong>SIGKILL (Signal 9): The Bypass</strong></p>\n<p>SIGKILL is completely different: <strong>your application code never even sees it.</strong></p>\n<p>The Linux kernel intercepts <code>SIGKILL</code> directly. It immediately removes the process from the CPU, frees its memory, and deletes its PID. The application gets zero milliseconds to execute any cleanup logic.</p>\n<p><strong>What Actually Breaks in Production with</strong> <code>kill -9</code><strong>?</strong></p>\n<p>Running kill -9 on your laptop feels harmless because you are the only user. In production, doing it triggers silent chaos:</p>\n<ul>\n<li><p>Ghost Database Connections: The app drops instantly without closing the connection pool. The database keeps those connections open until an idle timeout, causing connection pool exhaustion for other instances.</p>\n</li>\n<li><p>In-Flight Data Loss: If a user was uploading a file, submitting an order, or running a payment, the connection breaks mid-stream, leaving half-written data or corrupted states.</p>\n</li>\n<li><p>Orphaned Locks: Distributed locks (in Redis or Zookeeper) or file locks don't get released, blocking other background jobs until an automatic TTL kicks in.</p>\n</li>\n</ul>\n<p><strong>The Golden Rule: The \"Polite-First\" Pattern</strong></p>\n<p>Next time you need to stop a running backend process, ditch the default <code>-9</code> and follow this 3-step discipline:</p>\n<pre><code class=\"language-shell\"># Step 1: Send the polite request (SIGTERM)\nkill &lt;PID&gt;\n\n# Step 2: Give the app a few seconds to flush buffers and close connections\nsleep 5\n\n# Step 3: Use kill -9 ONLY if the process is completely hung or frozen\nkill -9 &lt;PID&gt;\n</code></pre>\n<p>Reserve <code>kill -9</code> for its intended purpose: an emergency override for completely unresponsive processes, not your everyday off switch.</p>"
+      },
+      "tags": [
+        {
+          "name": "Linux"
+        },
+        {
+          "name": "backend"
+        },
+        {
+          "name": "Devops"
+        },
+        {
+          "name": "Web Development"
+        }
+      ],
+      "author": {
+        "name": "Harsh Ranjan Jha",
+        "profilePicture": "https://cdn.hashnode.com/res/hashnode/image/upload/v1740219231206/f637efb9-ca63-4eb2-ab18-9e06ffc71b6f.webp"
+      },
+      "readTimeInMinutes": 5
+    },
     "how-hashmap-works-internally-in-java-explained-simply": {
       "title": "How HashMap Works Internally in Java — Explained Simply",
       "brief": "Introduction:-\nYou use HashMap every day in Java. But have you ever wondered what actually happens when you write map.put(\"name\", \"Harsh\")? Where does it go? How does Java find it so fast? Let's break",
